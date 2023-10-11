@@ -8,11 +8,21 @@ class SocialNetwork {
   }
 
   addUser(name) {
-    // Your code here
+    this.currentID++;
+    this.users[this.currentID] = {
+      "id": this.currentID,
+      "name": name
+    };
+    this.follows[this.currentID] = new Set();
+    return this.currentID;
   }
 
   getUser(userID) {
-    // Your code here
+    return this.users[userID] || null;
+    
+    // let user = this.users[userID];
+    // if (user) return user;
+    // return null;
   }
 
   follow(userID1, userID2) {
